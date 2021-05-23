@@ -53,6 +53,11 @@ class DashboardGenerator {
                                 "stat": "Average",
                                 "color": "#212ebd"
                             }],
+                            [".", "DeploymentFrequency", ".", ".", {
+                                "label": "Deploy Freq",
+                                "stat": "Average",
+                                "color": "#102ebd"
+                            }],
                             [".", "DeliveryLeadTime", ".", ".", {
                                 "label": "Lead Time",
                                 "stat": "Average",

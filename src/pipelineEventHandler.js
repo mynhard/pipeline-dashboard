@@ -6,6 +6,7 @@ const ACTION_EVENT = 'CodePipeline Action Execution State Change';
 
 const COUNT = 'Count';
 const SECONDS = 'Seconds';
+const PER_DAY = 'Per Day';
 
 class PipelineEventHandler {
     run(eventPromise) {
@@ -102,6 +103,8 @@ class PipelineEventHandler {
         if(currentExecution && currentExecution.status === 'Succeeded' && priorSuccessExecution) {
             let duration = durationInSeconds(priorSuccessExecution.lastUpdateTime, currentExecution.lastUpdateTime);
             PipelineEventHandler.addMetric(state, 'SuccessCycleTime', SECONDS, duration);
+            let frequency = duration > 0 ? (24 * 60 * 60) / duration : 0;
+            PipelineEventHandler.addMetric(state, 'DeploymentFrequency', PER_DAY, frequency);
         }
         return state;
     }

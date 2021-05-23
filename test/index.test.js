@@ -62,6 +62,15 @@ describe( 'handlePipelineEvent', function() {
                     },
                     {
                         "Timestamp": new Date(1492831007000),
+                        "MetricName": "DeploymentFrequency",
+                        "Unit": "Per Day",
+                        "Dimensions": [
+                            { Name: "PipelineName", Value: "my-pipeline" },
+                        ],
+                        "Value": (24 * 60 * 60) / 600,
+                    },
+                    {
+                        "Timestamp": new Date(1492831007000),
                         "MetricName": "SuccessLeadTime",
                         "Unit": "Seconds",
                         "Dimensions": [
@@ -355,6 +364,15 @@ describe( 'handlePipelineEvent', function() {
                             {Name: "PipelineName", Value: "my-pipeline"},
                         ],
                         "Value": 600,
+                    },
+                    {
+                        "Timestamp": new Date(1492831007000),
+                        "MetricName": "DeploymentFrequency",
+                        "Unit": "Per Day",
+                        "Dimensions": [
+                            { Name: "PipelineName", Value: "my-pipeline" },
+                        ],
+                        "Value": (24 * 60 * 60) / 600,
                     },
                     {
                         "Timestamp": new Date(1492831007000),

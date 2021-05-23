@@ -2,6 +2,7 @@
 
 const COUNT = 'Count';
 const SECONDS = 'Seconds';
+const PER_DAY = 'Per Day';
 
 const AWS = require('aws-sdk');
 if(!AWS.config.region) {
@@ -158,6 +159,10 @@ function putMetric(pipelineName, eventTime, metricName, unit, value) {
         if (e.succeeded) {
             putMetric(p.name, eventTime, 'SuccessCount', COUNT, 1);
             putMetric(p.name, eventTime, 'SuccessLeadTime', SECONDS, e.runTime);
+            let duration = durationInSeconds(priorSuccessExecution.endTimestamp, e.endTimestamp);
+            putMetric(p.name, eventTime, 'SuccessCycleTime', SECONDS, duration);
+            let frequency = duration > 0 ? (24 * 60 * 60) / duration : 0;
+            putMetric(p.name, eventTime, 'DeploymentFrequency', PER_DAY, frequency);
             putMetric(p.name, eventTime, 'SuccessCycleTime', SECONDS, durationInSeconds(priorSuccessEvent.endTimestamp, e.endTimestamp));
             putMetric(p.name, eventTime, 'DeliveryLeadTime', SECONDS, durationInSeconds(priorSuccessEvent.endTimestamp, e.endTimestamp) - e.waitTime);
 

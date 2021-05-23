@@ -1,7 +1,7 @@
 project:
   name: pipeline-dashboard
   regions:
-    - us-east-1
+    - ap-southeast-2
 tests:
   test-cfn:
     template: ./test-cfn.yml
