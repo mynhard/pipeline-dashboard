@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stelligent/pipeline-dashboard.git"
+    "url": "git+https://github.com/mynhard/pipeline-dashboard.git"
   },
   "author": "Casey Lee <cplee@nektos.com> (http://www.cplee.org)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stelligent/pipeline-dashboard/issues"
+    "url": "https://github.com/mynhard/pipeline-dashboard/issues"
   },
-  "homepage": "https://github.com/stelligent/pipeline-dashboard#readme",
+  "homepage": "https://github.com/mynhard/pipeline-dashboard#readme",
   "devDependencies": {
     "aws-sdk-mock": "^5.0.0",
     "chai": "^4.1.2",
